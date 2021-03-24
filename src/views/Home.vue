@@ -1,18 +1,46 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Magnifier
+      link="https://www.bilibili.com/read/cv4976668/"
+      :blank="true"
+      imgUrl="https://z3.ax1x.com/2021/03/23/6TqdAO.png"
+      :imgWidth="400"
+      :imgHeight="275"
+      :magWidth="150"
+      :magHeight="100"
+      imgAlt='异度之刃2'
+      >
+    </Magnifier>
+    <Magnifier2
+      link="https://www.bilibili.com/read/cv4976668/"
+      :blank="true"
+      imgUrl="https://z3.ax1x.com/2021/03/23/6TqdAO.png"
+      :imgWidth="400"
+      :imgHeight="275"
+      :magWidth="150"
+      :magHeight="150"
+      imgAlt='异度之刃2'
+      >
+    </Magnifier2>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  setup(){
+
+    return{
+
+    }
   }
 }
 </script>
+
+<style lang="less" scoped>
+.home{
+  // position: relative;
+  // top: 100px;
+  // left: 100px;
+}
+</style>
