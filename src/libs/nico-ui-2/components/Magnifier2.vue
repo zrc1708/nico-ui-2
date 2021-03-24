@@ -24,7 +24,8 @@
             }">
             <img class="big-img" 
                 :style="{
-                    height:setBigImageWidth+'px'
+                    height:setBigImageHeight+'px',
+                    width:setBigImageWidth+'px'
                 }"
                 :src="imgUrl" 
                 :alt="imgAlt">
@@ -65,7 +66,8 @@ export default {
     },
     setup(props){
         const bigImageWidth = ref(props.imgHeight*props.magWidth/props.magHeight)
-        const setBigImageWidth = ref(props.imgHeight*props.imgHeight/props.magHeight)
+        const setBigImageHeight = ref(props.imgHeight*props.imgHeight/props.magHeight)
+        const setBigImageWidth = ref(props.imgWidth*bigImageWidth.value/props.magWidth)
 
         onMounted(()=>{
             const oImgWrap = document.querySelector('.img-wrap2')
@@ -76,8 +78,6 @@ export default {
             const imgHeight = getStyle(oImgWrap,'height')
             const maskWidth = getStyle(mask,'width')
             const maskHeight = getStyle(mask,'height')
-            // const bigImageWidth = getStyle(bigImage,'width')
-            const bigImageHeight = getStyle(bigImage,'height')
             const imgX = oImgWrap.getBoundingClientRect().left
             const imgY = oImgWrap.getBoundingClientRect().top
 
@@ -125,7 +125,7 @@ export default {
             mask.style.top = y +'px'
             // 调整大图位置
             let bigImageX = x*setBigImageWidth.value/imgWidth
-            let bigImageY = y*bigImageHeight/imgHeight
+            let bigImageY = y*setBigImageHeight.value/imgHeight
             bigImage.style.left = -bigImageX+'px'
             bigImage.style.top = -bigImageY+'px'
         }
@@ -144,6 +144,7 @@ export default {
 
         return {
             bigImageWidth,
+            setBigImageHeight,
             setBigImageWidth
         }
     }
