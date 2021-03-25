@@ -33,7 +33,7 @@
 import {magnifier} from '../directives'
 
 export default {
-    name:'Magnifier',
+    name:'Ni-Magnifier',
     directives:{
         magnifier
     },

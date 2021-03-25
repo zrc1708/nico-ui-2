@@ -38,7 +38,7 @@ import { onMounted, ref } from 'vue'
 import {getStyle} from '../utils/tools'
 
 export default {
-    name:'Magnifier2',
+    name:'Ni-Magnifier2',
     props:{
         imgWidth:{
             type:Number,
